@@ -17,8 +17,10 @@ oci for go. It's goci!
 * 如果你使用简易的安装包，请在
 * [http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html](http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html)
 * 下载：
-* oracle-instantclient11.2-basic-11.2.0.3.0-1.x86_64.rpm 
-* oracle-instantclient11.2-devel-11.2.0.3.0-1.x86_64.rpm
+* oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm
+* oracle-instantclient11.2-devel-11.2.0.4.0-1.x86_64.rpm 
+* oracle-instantclient11.2-sqlplus-11.2.0.4.0-1.x86_64.rpm (可选） 
+
 * 并安装和设置oracle环境变量。包括： $ORACLE_HOME LD_LIBRARY_PATH 
 * 同时需设置 TNS_ADMIN 指向你的tnsnames.ora 文件地址,推荐同期安装sqlplus，以sqlplus能连上数据库为准
 * export  TNS_ADMIN=/home/oracle/app/oracle/product/11.2.0/client_1/network/admin
