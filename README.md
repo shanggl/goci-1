@@ -85,5 +85,5 @@ oci for go. It's goci!
         }
 
 
-        此程序在 redhat server 6 的 64 位机器上编译测试正常通过。
-                                2013.03.12    晨笛记录
+        此程序在Ubuntu 15.04 的 64 位机器上编译测试正常通过。
+        其中Oracle的客户端通过 alien 安装
