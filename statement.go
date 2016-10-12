@@ -47,7 +47,7 @@ func (stmt *statement) Exec(args []driver.Value) (driver.Result, error) {
 		return nil, err
 	}
 
-	if C.OCIStmtExecute((*C.OCIServer)(stmt.conn.svr), (*C.OCIStmt)(stmt.handle), (*C.OCIError)(stmt.conn.err), 1, 0, nil, nil, C.OCI_DEFAULT) != C.OCI_SUCCESS {
+	if C.OCIStmtExecute((*C.OCISvcCtx)(stmt.conn.svr), (*C.OCIStmt)(stmt.handle), (*C.OCIError)(stmt.conn.err), 1, 0, nil, nil, C.OCI_DEFAULT) != C.OCI_SUCCESS {
 		return nil, ociGetError(stmt.conn.err)
 	}
 	return &result{stmt}, nil
@@ -76,7 +76,7 @@ func (stmt *statement) Query(v []driver.Value) (driver.Rows, error) {
 	}
 
 	// execute the statement
-	if C.OCIStmtExecute((*C.OCIServer)(stmt.conn.svr), (*C.OCIStmt)(stmt.handle), (*C.OCIError)(stmt.conn.err), iter, 0, nil, nil, C.OCI_DEFAULT) != C.OCI_SUCCESS {
+	if C.OCIStmtExecute((*C.OCISvcCtx)(stmt.conn.svr), (*C.OCIStmt)(stmt.handle), (*C.OCIError)(stmt.conn.err), iter, 0, nil, nil, C.OCI_DEFAULT) != C.OCI_SUCCESS {
 		err := ociGetError(stmt.conn.err)
 		log.Println(err)
 		return nil, err
