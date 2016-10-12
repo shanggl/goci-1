@@ -1,0 +1,8 @@
+LIB_PATH=/usr/lib/oracle/11.2/client64/lib  #你的oracle instant client 安装后 lib位置
+INCL_PATH=/usr/include/oracle/11.2/client64 #你的oracle instant include 文件位置
+
+Name:oci8
+Version:11.2
+Libs:-lclntsh -L $LIB_PATH
+Cflags:-I$INCL_PATH
+Description:ORALCE INSTANT CLIENT INCLUDE FILES AND LIBS CONFIG
