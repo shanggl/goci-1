@@ -32,7 +32,7 @@ func (conn *connection) performLogon(dsn string) error {
 
 	result := C.OCILogon2((*C.OCIEnv)(unsafe.Pointer(conn.env)),
 		(*C.OCIError)(conn.err),
-		(**C.OCIServer)(unsafe.Pointer(&conn.svr)),
+		(**C.OCISvcCtx)(unsafe.Pointer(&conn.svr)),
 		(*C.OraText)(unsafe.Pointer(puser)),
 		C.ub4(C.strlen(puser)),
 		(*C.OraText)(unsafe.Pointer(ppwd)),
@@ -86,7 +86,7 @@ func (conn *connection) Close() error {
 // Makes a lightweight call to the server. A successful result indicates the server is active.  A block indicates the connection may be in use by
 // another thread. A failure indicates a communication error.
 func (conn *connection) ping() error {
-	if C.OCIPing((*C.OCIServer)(conn.svr), (*C.OCIError)(conn.err), C.OCI_DEFAULT) != C.OCI_SUCCESS {
+	if C.OCIPing((*C.OCISvcCtx)(conn.svr), (*C.OCIError)(conn.err), C.OCI_DEFAULT) != C.OCI_SUCCESS {
 		return ociGetError(conn.err)
 	}
 	return nil
