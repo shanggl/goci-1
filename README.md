@@ -9,20 +9,18 @@ goci
 oci for go. It's goci!
 
 * 编译注意事项：
-* 在相关程序中我加了 cgo 编译时需加的头文件和连接库
-* #cgo CFLAGS: -I/home/oracle/app/oracle/product/11.2.0/client_1/rdbms/public
-* #cgo LDFLAGS: -lclntsh -L/home/oracle/app/oracle/product/11.2.0/client_1/lib
-* 您在使用时，请将 /home/oracle/app/oracle/product/11.2.0/client_1 修改为你的
-* 系统中 $ORACLE_HOME 的字串值
-
+* cgo 编译时需加的头文件和连接库
+* 将oci8.pc 放到 你 PKG_CONFIG_PATH 下，并确保你安装了 pkg-config
+* 其中oci8.pc 的内容见具体文件
+ 
 
 * 如果你使用简易的安装包，请在
 * [http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html](http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html)
 * 下载：
 * oracle-instantclient11.2-basic-11.2.0.3.0-1.x86_64.rpm 
 * oracle-instantclient11.2-devel-11.2.0.3.0-1.x86_64.rpm
-* 并安装和设置oracle环境变量。
-* 同时需设置 
+* 并安装和设置oracle环境变量。包括： $ORACLE_HOME LD_LIBRARY_PATH 
+* 同时需设置 TNS_ADMIN 指向你的tnsnames.ora 文件地址,推荐同期安装sqlplus，以sqlplus能连上数据库为准
 * export  TNS_ADMIN=/home/oracle/app/oracle/product/11.2.0/client_1/network/admin
 * 
 ### ORACLE_HOME 以您系统实际情况进行修改。
